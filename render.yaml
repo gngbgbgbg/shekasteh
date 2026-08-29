@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: ollama-open-webui
+    runtime: docker
+    plan: starter
+    region: frankfurt
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /health
+    envVars:
+      - key: OLLAMA_HOST
+        value: 0.0.0.0:11434
+      - key: WEBUI_AUTH
+        value: "True"
